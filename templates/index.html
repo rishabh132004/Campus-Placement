@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPGI Campus Placement Management System</title>
+    <meta name="description" content="MPGI Kanpur - Campus Placement Management System. 800+ organizations, 44 LPA highest package, 3100+ placements offered.">
+
+    <!-- Google Fonts: Outfit (headings) + DM Sans (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--  HERO SECTION with WebGL Shader BG     -->
+    <!-- ═══════════════════════════════════════ -->
+    <section id="hero">
+        <canvas id="shader-canvas"></canvas>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge animate-fade-down">MPGI Kanpur | Autonomous Institute</div>
+            <h1 class="hero-title">
+                <span class="hero-line animate-fade-up delay-1">MPGI Campus</span>
+                <span class="hero-line animate-fade-up delay-2">Placement System</span>
+            </h1>
+            <p class="hero-subtitle animate-fade-up delay-3">
+                Maharana Pratap Group of Institutions — 800+ recruiting organizations,
+                44 LPA highest package, 3100+ placements. Empowering futures since 2001.
+            </p>
+            <div class="hero-buttons animate-fade-up delay-4">
+                <button class="btn btn-primary" onclick="scrollToSection('dashboard')">Enter Dashboard</button>
+                <button class="btn btn-glass" onclick="scrollToSection('students')">Manage Students</button>
+            </div>
+        </div>
+        <div class="scroll-indicator animate-fade-up delay-4">
+            <span>Scroll Down</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--  MAIN APPLICATION LAYOUT               -->
+    <!-- ═══════════════════════════════════════ -->
+    <div class="app-wrapper">
+
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <span class="sidebar-logo">🎓</span>
+                <span class="sidebar-title">MPGI</span>
+            </div>
+            <ul class="sidebar-nav">
+                <li><a href="#dashboard" class="nav-link active" data-section="dashboard">
+                    <span class="nav-icon">📊</span><span class="nav-text">Dashboard</span></a></li>
+                <li><a href="#students" class="nav-link" data-section="students">
+                    <span class="nav-icon">👨‍🎓</span><span class="nav-text">Students</span></a></li>
+                <li><a href="#companies" class="nav-link" data-section="companies">
+                    <span class="nav-icon">🏢</span><span class="nav-text">Companies</span></a></li>
+                <li><a href="#drives" class="nav-link" data-section="drives">
+                    <span class="nav-icon">📅</span><span class="nav-text">Drives</span></a></li>
+                <li><a href="#interviews" class="nav-link" data-section="interviews">
+                    <span class="nav-icon">🎤</span><span class="nav-text">Interviews</span></a></li>
+                <li><a href="#offers" class="nav-link" data-section="offers">
+                    <span class="nav-icon">📜</span><span class="nav-text">Offers</span></a></li>
+                <li><a href="#eligibility" class="nav-link" data-section="eligibility">
+                    <span class="nav-icon">✅</span><span class="nav-text">Eligibility</span></a></li>
+                <li><a href="#reports" class="nav-link" data-section="reports">
+                    <span class="nav-icon">📈</span><span class="nav-text">Reports</span></a></li>
+            </ul>
+        </nav>
+
+        <!-- Beams Background Canvas (behind dashboard) -->
+        <canvas id="beams-canvas"></canvas>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- ── DASHBOARD ──────────────────── -->
+            <section id="dashboard" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">MPGI Placement Dashboard</h2>
+                    <p class="section-desc">Real-time system stats + MPGI institutional placement highlights</p>
+                </div>
+
+                <!-- MPGI Institutional Highlights -->
+                <div class="mpgi-banner">
+                    <h3 class="banner-title">MPGI Institutional Placement Highlights 2025-26</h3>
+                    <p class="banner-sub">Maharana Pratap Group of Institutions, Kanpur</p>
+                </div>
+                <div class="stats-grid" id="mpgi-stats-grid">
+                    <div class="stat-card mpgi-stat"><div class="stat-icon">🏢</div><div class="stat-value counter" data-target="800">0</div><div class="stat-label">Organizations Associated</div></div>
+                    <div class="stat-card mpgi-stat"><div class="stat-icon">📜</div><div class="stat-value counter" data-target="3100">0</div><div class="stat-label">Placements Offered</div></div>
+                    <div class="stat-card mpgi-stat highlight"><div class="stat-icon">💰</div><div class="stat-value">44 LPA</div><div class="stat-label">Highest Package</div></div>
+                    <div class="stat-card mpgi-stat"><div class="stat-icon">📊</div><div class="stat-value">6 LPA</div><div class="stat-label">Average Package</div></div>
+                    <div class="stat-card mpgi-stat"><div class="stat-icon">🌐</div><div class="stat-value counter" data-target="2000">0</div><div class="stat-label">Total Recruiters</div></div>
+                    <div class="stat-card mpgi-stat"><div class="stat-icon">⭐</div><div class="stat-value counter" data-target="5000">0</div><div class="stat-label">Fortune 500 Offers</div></div>
+                    <div class="stat-card mpgi-stat"><div class="stat-icon">🎓</div><div class="stat-value counter" data-target="150">0</div><div class="stat-label">IIT/NIT Level Recruiters</div></div>
+                    <div class="stat-card mpgi-stat"><div class="stat-icon">🌍</div><div class="stat-value">500+</div><div class="stat-label">Alumni in Global MNCs</div></div>
+                </div>
+
+                <!-- Top Recruiters Marquee -->
+                <div class="recruiters-section">
+                    <h3 class="sub-section-title">Top Recruiters at MPGI</h3>
+                    <div class="marquee-wrapper">
+                        <div class="marquee-track">
+                            <span class="recruiter-tag">Microsoft</span><span class="recruiter-tag">Google</span><span class="recruiter-tag">Amazon</span><span class="recruiter-tag">Autodesk</span><span class="recruiter-tag">JP Morgan</span><span class="recruiter-tag">Samsung</span><span class="recruiter-tag">Accenture</span><span class="recruiter-tag">TCS</span><span class="recruiter-tag">Capgemini</span><span class="recruiter-tag">Salesforce</span><span class="recruiter-tag">Cognizant</span><span class="recruiter-tag">HCL</span><span class="recruiter-tag">Wipro</span><span class="recruiter-tag">NatWest</span><span class="recruiter-tag">Razorpay</span><span class="recruiter-tag">Juspay</span><span class="recruiter-tag">Eightfold.ai</span><span class="recruiter-tag">AMD</span><span class="recruiter-tag">Palo Alto</span><span class="recruiter-tag">GoDaddy</span><span class="recruiter-tag">Bosch</span><span class="recruiter-tag">LTIMindtree</span><span class="recruiter-tag">Coforge</span><span class="recruiter-tag">Atlan</span>
+                            <span class="recruiter-tag">Microsoft</span><span class="recruiter-tag">Google</span><span class="recruiter-tag">Amazon</span><span class="recruiter-tag">Autodesk</span><span class="recruiter-tag">JP Morgan</span><span class="recruiter-tag">Samsung</span><span class="recruiter-tag">Accenture</span><span class="recruiter-tag">TCS</span><span class="recruiter-tag">Capgemini</span><span class="recruiter-tag">Salesforce</span><span class="recruiter-tag">Cognizant</span><span class="recruiter-tag">HCL</span><span class="recruiter-tag">Wipro</span><span class="recruiter-tag">NatWest</span><span class="recruiter-tag">Razorpay</span><span class="recruiter-tag">Juspay</span><span class="recruiter-tag">Eightfold.ai</span><span class="recruiter-tag">AMD</span><span class="recruiter-tag">Palo Alto</span><span class="recruiter-tag">GoDaddy</span><span class="recruiter-tag">Bosch</span><span class="recruiter-tag">LTIMindtree</span><span class="recruiter-tag">Coforge</span><span class="recruiter-tag">Atlan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Placements Showcase -->
+                <div class="top-placements-section">
+                    <h3 class="sub-section-title">Top Placements 2025-26</h3>
+                    <div class="cards-grid" id="top-placements-grid">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <!-- System Live Stats -->
+                <div class="system-stats-section">
+                    <h3 class="sub-section-title">System Live Statistics</h3>
+                    <p class="section-desc" style="margin-top:-12px">Data from your Campus Placement Management System</p>
+                </div>
+                <div class="stats-grid" id="stats-grid">
+                    <!-- JS renders live stat cards here -->
+                </div>
+
+                <!-- Branch Performance Analytics -->
+                <div class="branch-analytics-section" style="margin-top: 40px;">
+                    <h3 class="sub-section-title">Branch Performance Analytics</h3>
+                    <p class="section-desc" style="margin-top:-12px">Placement rate, highest package, and average package aggregated by branch</p>
+                    <div class="table-wrapper reveal">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Branch</th>
+                                    <th>Total Students</th>
+                                    <th>Placed Students</th>
+                                    <th>Placement Rate</th>
+                                    <th>Highest Package</th>
+                                    <th>Average Package</th>
+                                </tr>
+                            </thead>
+                            <tbody id="branch-stats-tbody">
+                                <!-- Rendered dynamically by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── STUDENTS ───────────────────── -->
+            <section id="students" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Student Management</h2>
+                    <p class="section-desc">Register and manage student profiles</p>
+                    <button class="btn btn-primary" onclick="openModal('student-modal')">+ Register Student</button>
+                </div>
+                <div class="search-bar">
+                    <input type="text" id="student-search" class="form-input" placeholder="Search by Student ID..." onkeyup="searchStudent()">
+                </div>
+                <div class="cards-grid" id="students-grid"></div>
+                <div class="empty-state" id="students-empty">No students registered yet. Click "+ Register Student" to add one.</div>
+            </section>
+
+            <!-- ── COMPANIES ──────────────────── -->
+            <section id="companies" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Company Management</h2>
+                    <p class="section-desc">Manage recruiting companies and packages</p>
+                    <button class="btn btn-primary" onclick="openModal('company-modal')">+ Register Company</button>
+                </div>
+                <div class="cards-grid" id="companies-grid"></div>
+                <div class="empty-state" id="companies-empty">No companies registered yet.</div>
+            </section>
+
+            <!-- ── DRIVES ─────────────────────── -->
+            <section id="drives" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Placement Drives</h2>
+                    <p class="section-desc">Schedule and track recruitment drives</p>
+                    <button class="btn btn-primary" onclick="openModal('drive-modal')">+ Create Drive</button>
+                </div>
+                <div class="cards-grid" id="drives-grid"></div>
+                <div class="empty-state" id="drives-empty">No drives created yet.</div>
+            </section>
+
+            <!-- ── INTERVIEWS ─────────────────── -->
+            <section id="interviews" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Interview Management</h2>
+                    <p class="section-desc">Schedule and track interview sessions</p>
+                    <button class="btn btn-primary" onclick="openModal('interview-modal')">+ Schedule Interview</button>
+                </div>
+                <div class="table-wrapper">
+                    <table class="data-table" id="interviews-table">
+                        <thead><tr>
+                            <th>Interview ID</th><th>Student</th><th>Company</th><th>Date</th><th>Interviewer / Panel</th><th>Status</th>
+                        </tr></thead>
+                        <tbody id="interviews-tbody"></tbody>
+                    </table>
+                </div>
+                <div class="empty-state" id="interviews-empty">No interviews scheduled yet.</div>
+            </section>
+
+            <!-- ── OFFERS ─────────────────────── -->
+            <section id="offers" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Job Offer Management</h2>
+                    <p class="section-desc">Generate and track job offers</p>
+                    <button class="btn btn-primary" onclick="openModal('offer-modal')">+ Generate Offer</button>
+                </div>
+                <div class="cards-grid" id="offers-grid"></div>
+                <div class="empty-state" id="offers-empty">No offers generated yet.</div>
+            </section>
+
+            <!-- ── ELIGIBILITY ────────────────── -->
+            <section id="eligibility" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Eligibility Checker</h2>
+                    <p class="section-desc">Check if a student meets a company's CGPA requirement</p>
+                </div>
+                <div class="eligibility-panel glass-card">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Student</label>
+                            <select id="elig-student" class="form-input"></select>
+                        </div>
+                        <div class="form-group">
+                            <label>Company</label>
+                            <select id="elig-company" class="form-input"></select>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="checkEligibility()">Check Eligibility</button>
+                    <div id="eligibility-result" class="elig-result hidden"></div>
+                </div>
+            </section>
+
+            <!-- ── REPORTS ────────────────────── -->
+            <section id="reports" class="content-section">
+                <div class="section-header">
+                    <h2 class="section-title">Reports & Data</h2>
+                    <p class="section-desc">Generate reports and manage system data</p>
+                </div>
+                <div class="reports-grid">
+                    <div class="glass-card report-card">
+                        <div class="report-icon">📄</div>
+                        <h3>Export System Reports</h3>
+                        <p>Generates all 4 CSV reports (Student Placement, Company Recruitment, Placement Stats, and Offer Summary) in the workspace.</p>
+                        <button class="btn btn-primary" onclick="generateReport()">Generate All Reports</button>
+                    </div>
+                    <div class="glass-card report-card">
+                        <div class="report-icon">💾</div>
+                        <h3>Save Data</h3>
+                        <p>Persist all current system data to data.json.</p>
+                        <button class="btn btn-glass" onclick="saveData()">Save Data</button>
+                    </div>
+                    <div class="glass-card report-card">
+                        <div class="report-icon">📂</div>
+                        <h3>Load Data</h3>
+                        <p>Reload system data from data.json file.</p>
+                        <button class="btn btn-glass" onclick="loadData()">Load Data</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- ═══════════════════════════════════════ -->
+    <!--  MODALS (popup forms)                  -->
+    <!-- ═══════════════════════════════════════ -->
+
+    <!-- Student Registration Modal -->
+    <div class="modal-overlay" id="student-modal">
+        <div class="modal glass-card">
+            <div class="modal-header">
+                <h3>Register New Student</h3>
+                <button class="modal-close" onclick="closeModal('student-modal')">&times;</button>
+            </div>
+            <form onsubmit="handleStudentSubmit(event)">
+                <div class="modal-body">
+                    <div class="form-row">
+                        <div class="form-group"><label>Person ID</label><input type="text" id="s-pid" class="form-input" required></div>
+                        <div class="form-group"><label>Student ID</label><input type="text" id="s-sid" class="form-input" required></div>
+                    </div>
+                    <div class="form-group"><label>Full Name</label><input type="text" id="s-name" class="form-input" required></div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Email</label><input type="email" id="s-email" class="form-input" required></div>
+                        <div class="form-group"><label>Phone</label><input type="tel" id="s-phone" class="form-input" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Branch</label><input type="text" id="s-branch" class="form-input" required></div>
+                        <div class="form-group"><label>CGPA (0-10)</label><input type="number" id="s-cgpa" class="form-input" step="0.01" min="0" max="10" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Backlogs</label><input type="number" id="s-backlogs" class="form-input" min="0" value="0" required></div>
+                        <div class="form-group"><label>Resume Link</label><input type="url" id="s-resume" class="form-input" placeholder="https://drive.google.com/..."></div>
+                    </div>
+                    <div class="form-group"><label>Skills (comma separated)</label><input type="text" id="s-skills" class="form-input" placeholder="Python, Java, SQL"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-glass" onclick="closeModal('student-modal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Register Student</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Company Registration Modal -->
+    <div class="modal-overlay" id="company-modal">
+        <div class="modal glass-card">
+            <div class="modal-header">
+                <h3>Register New Company</h3>
+                <button class="modal-close" onclick="closeModal('company-modal')">&times;</button>
+            </div>
+            <form onsubmit="handleCompanySubmit(event)">
+                <div class="modal-body">
+                    <div class="form-group"><label>Company ID</label><input type="text" id="c-cid" class="form-input" required></div>
+                    <div class="form-group"><label>Company Name</label><input type="text" id="c-name" class="form-input" required></div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Package (LPA)</label><input type="number" id="c-package" class="form-input" step="0.1" min="0" required></div>
+                        <div class="form-group"><label>Min CGPA Required</label><input type="number" id="c-cgpa" class="form-input" step="0.1" min="0" max="10" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Max Backlogs Allowed</label><input type="number" id="c-backlogs" class="form-input" min="0" value="0" required></div>
+                        <div class="form-group"><label>Job Role</label><input type="text" id="c-role" class="form-input" required></div>
+                    </div>
+                    <div class="form-group"><label>Required Skills (comma separated)</label><input type="text" id="c-skills" class="form-input" placeholder="Python, React"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-glass" onclick="closeModal('company-modal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Register Company</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Drive Creation Modal -->
+    <div class="modal-overlay" id="drive-modal">
+        <div class="modal glass-card">
+            <div class="modal-header">
+                <h3>Create Placement Drive</h3>
+                <button class="modal-close" onclick="closeModal('drive-modal')">&times;</button>
+            </div>
+            <form onsubmit="handleDriveSubmit(event)">
+                <div class="modal-body">
+                    <div class="form-group"><label>Drive ID</label><input type="text" id="d-did" class="form-input" required></div>
+                    <div class="form-group"><label>Company</label><select id="d-company" class="form-input" required></select></div>
+                    <div class="form-group"><label>Date</label><input type="date" id="d-date" class="form-input" required></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-glass" onclick="closeModal('drive-modal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Drive</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Interview Scheduling Modal -->
+    <div class="modal-overlay" id="interview-modal">
+        <div class="modal glass-card">
+            <div class="modal-header">
+                <h3>Schedule Interview</h3>
+                <button class="modal-close" onclick="closeModal('interview-modal')">&times;</button>
+            </div>
+            <form onsubmit="handleInterviewSubmit(event)">
+                <div class="modal-body">
+                    <div class="form-group"><label>Interview ID</label><input type="text" id="i-iid" class="form-input" required></div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Student</label><select id="i-student" class="form-input" required></select></div>
+                        <div class="form-group"><label>Company</label><select id="i-company" class="form-input" required></select></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Date</label><input type="date" id="i-date" class="form-input" required></div>
+                        <div class="form-group"><label>Interviewer / Panel</label><input type="text" id="i-panel" class="form-input" placeholder="Panel A" required></div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-glass" onclick="closeModal('interview-modal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Schedule Interview</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Offer Generation Modal -->
+    <div class="modal-overlay" id="offer-modal">
+        <div class="modal glass-card">
+            <div class="modal-header">
+                <h3>Generate Job Offer</h3>
+                <button class="modal-close" onclick="closeModal('offer-modal')">&times;</button>
+            </div>
+            <form onsubmit="handleOfferSubmit(event)">
+                <div class="modal-body">
+                    <div class="form-group"><label>Offer ID</label><input type="text" id="o-oid" class="form-input" required></div>
+                    <div class="form-group"><label>Student</label><select id="o-student" class="form-input" required></select></div>
+                    <div class="form-group"><label>Company</label><select id="o-company" class="form-input" required></select></div>
+                    <div class="form-group"><label>Package (LPA)</label><input type="number" id="o-package" class="form-input" step="0.1" min="0" required></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-glass" onclick="closeModal('offer-modal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Generate Offer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast notification container -->
+    <div id="toast-container"></div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
