@@ -290,6 +290,16 @@ def load_data():
         return jsonify({"success": False, "message": str(e)}), 500
 
 
+@app.route('/api/data/download-file', methods=['GET'])
+def download_data_file():
+    """Download the data.json file from the server"""
+    try:
+        from flask import send_file
+        return send_file(cps.data_file, as_attachment=True)
+    except Exception as e:
+        return jsonify({"success": False, "message": str(e)}), 500
+
+
 # ══════════════════════════════════════════════
 #  START THE SERVER
 # ══════════════════════════════════════════════
