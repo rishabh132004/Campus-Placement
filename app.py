@@ -300,6 +300,20 @@ def download_data_file():
         return jsonify({"success": False, "message": str(e)}), 500
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    if request.path.startswith('/api/'):
+        return jsonify({"success": False, "message": "API endpoint not found"}), 404
+    return render_template('index.html')
+
+
+@app.route('/<path:path>')
+def catch_all(path):
+    if path.startswith('api/'):
+        return jsonify({"success": False, "message": "API endpoint not found"}), 404
+    return render_template('index.html')
+
+
 # ══════════════════════════════════════════════
 #  START THE SERVER
 # ══════════════════════════════════════════════
